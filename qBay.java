@@ -3,10 +3,11 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
+
 public class qBay {
 
-
     public static void main(String[] args){
+
         ArrayList<String> emailList = new ArrayList<>();
         ArrayList<String> passwordList = new ArrayList<>();
 
@@ -60,7 +61,17 @@ public class qBay {
             tries++;
         }
     }
+  
+    }
 
-    
+    public void Buy()
+    {
+        //ItemList;
+        Item MathBook = new Item("Discreet Math Textbook", "Textbooks", "Alex Saldana", "Saldanaa@qu.edu", 109.99);
+        Item MathBook = new Item("Discreet Math Textbook", "Textbooks", "Alex Saldana", "Saldanaa@qu.edu", 109.99);
+        Item MathBook = new Item("Discreet Math Textbook", "Textbooks", "Alex Saldana", "Saldanaa@qu.edu", 109.99);
+        Item MathBook = new Item("Discreet Math Textbook", "Textbooks", "Alex Saldana", "Saldanaa@qu.edu", 109.99);
+        Item MathBook = new Item("Discreet Math Textbook", "Textbooks", "Alex Saldana", "Saldanaa@qu.edu", 109.99);
+    }
 
 }
