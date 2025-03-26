@@ -1,12 +1,43 @@
-import java.util.ArrayList;
-import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class QBay {
 
+
+public class qBay {
+    public static String sellerName;
+    public static String sellerEmail;
+    public static ArrayList<Item> itemList;
+
+    public static void sell(){
+
+
+        Scanner sellScan = new Scanner(System.in);
+
+        System.out.println("1: See your current shop\n2: Put item up for sale");
+        int option = sellScan.nextInt();
+        sellScan.nextLine();
+        switch(option){
+            case 1:
+                for(Item i: itemList){
+                    System.out.println("Item Name: " + i.getName());
+                    System.out.println("Item Category: " + i.getCategory());
+                    System.out.println("Seller Name: " + i.getSellerName());
+                    System.out.println("Price:" + i.getPrice());
+                }
+            case 2:
+                String itemName = sellScan.nextLine();
+                String itemCategory = sellScan.nextLine();
+                double itemPrice = sellScan.nextInt();
+                sellScan.nextLine();
+                itemList.add(new Item(itemName, itemCategory, sellerName, sellerEmail, itemPrice));
+            default:
+                System.out.println("invalid option, return to main menu.");
+        }
+    }
     public static void main(String[] args){
+
 
         ArrayList<String> emailList = new ArrayList<>();
         ArrayList<String> passwordList = new ArrayList<>();
@@ -62,7 +93,12 @@ public class QBay {
         }
     }
 
-    public void Buy(){
+
+    public void Buy()
+    {
+        //ItemList;
         Item MathBook = new Item("Discreet Math Textbook", "Textbooks", "Alex Saldana", "Saldanaa@qu.edu", 109.99);
+
+
     }
 }
