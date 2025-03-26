@@ -1,0 +1,3 @@
+zakaria@gmail.com password1
+nolan@gmail.com password2
+benjamin@gmail.com password 3
