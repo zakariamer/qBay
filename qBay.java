@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
+
 public class qBay {
     public static String sellerName;
     public static String sellerEmail;
     public static ArrayList<Item> itemList;
 
     public static void sell(){
+
 
         Scanner sellScan = new Scanner(System.in);
 
@@ -91,11 +93,12 @@ public class qBay {
         }
     }
 
+
     public void Buy()
     {
         //ItemList;
         Item MathBook = new Item("Discreet Math Textbook", "Textbooks", "Alex Saldana", "Saldanaa@qu.edu", 109.99);
 
-    }
 
+    }
 }
