@@ -16,7 +16,11 @@ public class qBay {
                     System.out.println("Price:" + i.getPrice());
                 }
             case 2:
-
+                String itemName = sellScan.nextLine();
+                String itemCategory = sellScan.nextLine();
+                double itemPrice = sellScan.nextInt();
+                sellScan.nextLine();
+                itemList.add(new Item(itemName, itemCategory, ));
             default:
                 System.out.println("invalid option, return to main menu.");
         }
