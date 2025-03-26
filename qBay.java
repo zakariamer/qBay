@@ -10,8 +10,10 @@ public class qBay {
         switch(option){
             case 1:
                 for(Item i: itemList){
-                    System.out.println("Seller Name: " + i.name);
-                    
+                    System.out.println("Item Name: " + i.getName());
+                    System.out.println("Item Category: " + i.getCategory());
+                    System.out.println("Seller Name: " + i.getSellerName());
+                    System.out.println("Price:" + i.getPrice());
                 }
             case 2:
 
