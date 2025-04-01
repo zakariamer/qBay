@@ -81,7 +81,7 @@ public class qBay {
 
         System.out.println("Please enter your password!");
         String password = scan.nextLine();
-        int tries = 0;
+        int tries = 1;
         while (!passwordList.get(index).equals(password)){
             if (tries == 3){
                 System.out.println("You have exceeded the number of tries! Please try again later!");
