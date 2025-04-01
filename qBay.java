@@ -8,32 +8,47 @@ import java.util.Scanner;
 public class qBay {
     public static String sellerName;
     public static String sellerEmail;
-    public static ArrayList<Item> itemList;
+    public static ArrayList<Item> itemList = new ArrayList<Item>();
+    public static ArrayList<Item> sellList = new ArrayList<Item>();
 
     public static void sell(){
 
 
         Scanner sellScan = new Scanner(System.in);
 
-        System.out.println("1: See your current shop\n2: Put item up for sale");
+        System.out.println("1: See your items for sale\n2: Put item up for sale\n3: Back to main menu");
         int option = sellScan.nextInt();
         sellScan.nextLine();
         switch(option){
             case 1:
-                for(Item i: itemList){
-                    System.out.println("Item Name: " + i.getName());
-                    System.out.println("Item Category: " + i.getCategory());
-                    System.out.println("Seller Name: " + i.getSellerName());
-                    System.out.println("Price:" + i.getPrice());
+                if (sellList.isEmpty()) {
+                    System.out.println("You have no items for sale.");
+                } else {
+                    for (Item i : sellList) {
+                        System.out.println("Item Name: " + i.getName());
+                        System.out.println("Item Category: " + i.getCategory());
+                        System.out.println("Seller Name: " + i.getSellerName());
+                        System.out.println("Price: " + i.getPrice());
+                    }
                 }
+                break;
             case 2:
+                System.out.println("Enter the name of the item you want to sell:");
                 String itemName = sellScan.nextLine();
+                System.out.println("Enter the category of the item you want to sell:");
                 String itemCategory = sellScan.nextLine();
+                System.out.println("Enter the price");
                 double itemPrice = sellScan.nextInt();
                 sellScan.nextLine();
-                itemList.add(new Item(itemName, itemCategory, sellerName, sellerEmail, itemPrice));
+                sellList.add(new Item(itemName, itemCategory, sellerName, sellerEmail, itemPrice));
+                System.out.println("Item added to your list of items for sale!");
+                break;
+            case 3:
+                System.out.println("Returning to main menu...");
+                break;
             default:
                 System.out.println("invalid option, return to main menu.");
+                break;
         }
     }
     public static void main(String[] args){
@@ -69,36 +84,158 @@ public class qBay {
                         "  \\__/\\  /  \\___  >____/\\___  >____/|__|_|  /\\___  >  |__|  \\____/   \\__   ||______  /(____  / ____|\r\n" + //
                         "       \\/       \\/          \\/            \\/     \\/                     |__|       \\/      \\/\\/     ");
 
-        System.out.println("Please enter your email!");
+        // System.out.println("Please enter your email!");
 
-        String email = scan.nextLine();
-        while (!emailList.contains(email)){
-            System.out.println("Email not found! Please enter a valid email!");
-            email = scan.nextLine();
-        }
+        // String email = scan.nextLine();
+        // while (!emailList.contains(email)){
+        //     System.out.println("Email not found! Please enter a valid email!");
+        //     email = scan.nextLine();
+        // }
 
-        int index = emailList.indexOf(email);
+        // int index = emailList.indexOf(email);
 
-        System.out.println("Please enter your password!");
-        String password = scan.nextLine();
-        int tries = 1;
-        while (!passwordList.get(index).equals(password)){
-            if (tries == 3){
-                System.out.println("You have exceeded the number of tries! Please try again later!");
-                System.exit(0);
+        // System.out.println("Please enter your password!");
+        // String password = scan.nextLine();
+        // int tries = 1;
+        // while (!passwordList.get(index).equals(password)){
+        //     if (tries == 3){
+        //         System.out.println("You have exceeded the number of tries! Please try again later!");
+        //         System.exit(0);
+        //     }
+        //     System.out.println("Password not found! Please enter a valid password!");
+        //     password = scan.nextLine();
+        //     tries++;
+        // }
+
+        System.out.println("Welcome! What would you like to do?");
+        while (true){
+            System.out.println("1: Sell an item\n2: Buy an item\n3: Cart\n4: Logout");
+            int option = scan.nextInt();
+            scan.nextLine();    
+            switch(option){
+                case 1:
+                    sell();
+                    break;
+                case 2:
+                    Buy();
+                    break;
+                case 3:
+                    //Cart();
+                    break;
+                case 4:
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid option! Please try again!");
             }
-            System.out.println("Password not found! Please enter a valid password!");
-            password = scan.nextLine();
-            tries++;
         }
     }
 
 
-    public void Buy()
+    public static void Buy()
     {
+        Scanner scan = new Scanner(System.in);
         //ItemList;
-        Item MathBook = new Item("Discreet Math Textbook", "Textbooks", "Alex Saldana", "Saldanaa@qu.edu", 109.99);
+        Item MathBook = new Item("Discrete Math Textbook", "Textbooks", "Alex Saldana", "Saldanaa@qu.edu", 109.99);
+        Item eldenRing = new Item("Elden Ring", "Video Games", "John Doe", "johndoe@example.com", 59.99);
+        Item tShirt = new Item("Graphic T-Shirt", "Clothing", "Jane Smith", "janesmith@example.com", 19.99);
+        Item boardGame = new Item("Catan", "Board Games", "Chris Brown", "chrisbrown@example.com", 39.99);
+        Item sneakers = new Item("Running Sneakers", "Footwear", "Emily Davis", "emilydavis@example.com", 89.99);
 
+        System.out.println("Welcome to the Buy section! Here are some items available for purchase:");
+        System.out.println("1: " + MathBook.getName() + " - " + MathBook.getCategory() + " - " + MathBook.getSellerName() + " - $" + MathBook.getPrice());
+        System.out.println("2: " + eldenRing.getName() + " - " + eldenRing.getCategory() + " - " + eldenRing.getSellerName() + " - $" + eldenRing.getPrice());
+        System.out.println("3: " + tShirt.getName() + " - " + tShirt.getCategory() + " - " + tShirt.getSellerName() + " - $" + tShirt.getPrice());
+        System.out.println("4: " + boardGame.getName() + " - " + boardGame.getCategory() + " - " + boardGame.getSellerName() + " - $" + boardGame.getPrice());
+        System.out.println("5: " + sneakers.getName() + " - " + sneakers.getCategory() + " - " + sneakers.getSellerName() + " - $" + sneakers.getPrice());
 
+        System.out.println("Would you like to view more details about an item or add an item to your cart? ");
+        System.out.println("1: View more details\n2: Add to cart\n3: Back to main menu");
+        int choice = scan.nextInt();
+        scan.nextLine();
+
+        switch (choice) {
+            case 1:
+                System.out.println("Enter the number of the item you want to view:");
+                int itemNumber = scan.nextInt();
+                scan.nextLine();
+                System.out.println("Item Details: ");
+                switch (itemNumber) {
+                    case 1:
+                        System.out.println("Name: " + MathBook.getName());
+                        System.out.println("Category: " + MathBook.getCategory());
+                        System.out.println("Seller Name: " + MathBook.getSellerName());
+                        System.out.println("Seller Email: " + MathBook.getSellerEmail());
+                        System.out.println("Price: $" + MathBook.getPrice());
+                        break;
+                    case 2:
+                        System.out.println("Name: " + eldenRing.getName());
+                        System.out.println("Category: " + eldenRing.getCategory());
+                        System.out.println("Seller Name: " + eldenRing.getSellerName());
+                        System.out.println("Seller Email: " + eldenRing.getSellerEmail());
+                        System.out.println("Price: $" + eldenRing.getPrice());
+                        break;
+                    case 3:
+                        System.out.println("Name: " + tShirt.getName());
+                        System.out.println("Category: " + tShirt.getCategory());
+                        System.out.println("Seller Name: " + tShirt.getSellerName());
+                        System.out.println("Seller Email: " + tShirt.getSellerEmail());
+                        System.out.println("Price: $" + tShirt.getPrice());
+                        break;
+                    case 4:
+                        System.out.println("Name: " + boardGame.getName());
+                        System.out.println("Category: " + boardGame.getCategory());
+                        System.out.println("Seller Name: " + boardGame.getSellerName());
+                        System.out.println("Seller Email: " + boardGame.getSellerEmail());
+                        System.out.println("Price: $" + boardGame.getPrice());
+                        break;
+                    case 5:
+                        System.out.println("Name: " + sneakers.getName());
+                        System.out.println("Category: " + sneakers.getCategory());
+                        System.out.println("Seller Name: " + sneakers.getSellerName());
+                        System.out.println("Seller Email: " + sneakers.getSellerEmail());
+                        System.out.println("Price: $" + sneakers.getPrice());
+                        break;
+                    default:
+                        System.out.println("Invalid item number!");
+                }
+                break;
+
+            case 2: 
+                System.out.println("Enter the number of the item you want to add to your cart:");
+                int addItemNumber = scan.nextInt();
+                scan.nextLine();
+                switch (addItemNumber) {
+                    case 1:
+                        System.out.println("Added " + MathBook.getName() + " to your cart.");
+                        itemList.add(MathBook);
+                        break;
+                    case 2:
+                        System.out.println("Added " + eldenRing.getName() + " to your cart.");
+                        itemList.add(eldenRing);
+                        break;
+                    case 3:
+                        System.out.println("Added " + tShirt.getName() + " to your cart.");
+                        itemList.add(tShirt);
+                        break;
+                    case 4:
+                        System.out.println("Added " + boardGame.getName() + " to your cart.");
+                        itemList.add(boardGame);
+                        break;
+                    case 5:
+                        System.out.println("Added " + sneakers.getName() + " to your cart.");
+                        itemList.add(sneakers);
+                        break;
+                    default:
+                        System.out.println("Invalid item number!");
+                }
+                break;
+                
+            case 3:
+                System.out.println("Returning to main menu...");
+                break;
+
+            default:
+                break;
+        }
     }
 }
