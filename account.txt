@@ -1,3 +1,3 @@
 zakaria@quinnipiac.edu password1
 nolan@quinnipiac.edu password2
-benjamin@quinnipiac.edu password 3
+benjamin@quinnipiac.edu password3
