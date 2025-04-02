@@ -84,28 +84,28 @@ public class qBay {
                         "  \\__/\\  /  \\___  >____/\\___  >____/|__|_|  /\\___  >  |__|  \\____/   \\__   ||______  /(____  / ____|\r\n" + //
                         "       \\/       \\/          \\/            \\/     \\/                     |__|       \\/      \\/\\/     ");
 
-        // System.out.println("Please enter your email!");
+        System.out.println("Please enter your email!");
 
-        // String email = scan.nextLine();
-        // while (!emailList.contains(email)){
-        //     System.out.println("Email not found! Please enter a valid email!");
-        //     email = scan.nextLine();
-        // }
+        String email = scan.nextLine();
+        while (!emailList.contains(email)){
+            System.out.println("Email not found! Please enter a valid email!");
+            email = scan.nextLine();
+        }
 
-        // int index = emailList.indexOf(email);
+        int index = emailList.indexOf(email);
 
-        // System.out.println("Please enter your password!");
-        // String password = scan.nextLine();
-        // int tries = 1;
-        // while (!passwordList.get(index).equals(password)){
-        //     if (tries == 3){
-        //         System.out.println("You have exceeded the number of tries! Please try again later!");
-        //         System.exit(0);
-        //     }
-        //     System.out.println("Password not found! Please enter a valid password!");
-        //     password = scan.nextLine();
-        //     tries++;
-        // }
+        System.out.println("Please enter your password!");
+        String password = scan.nextLine();
+        int tries = 1;
+        while (!passwordList.get(index).equals(password)){
+            if (tries == 3){
+                System.out.println("You have exceeded the number of tries! Please try again later!");
+                System.exit(0);
+            }
+            System.out.println("Password not found! Please enter a valid password!");
+            password = scan.nextLine();
+            tries++;
+        }
 
         System.out.println("Welcome! What would you like to do?");
         while (true){
